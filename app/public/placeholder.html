@@ -1,0 +1,271 @@
+<!DOCTYPE HTML>
+<html>
+<head lang="en-us">
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="normalize.css">
+	<link href="https://fonts.googleapis.com/css?family=Baloo+Tammudu|Open+Sans+Condensed:300" rel="stylesheet">
+	<script src="https://unpkg.com/ionicons@4.2.4/dist/ionicons.js"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+	
+<style>
+
+/*===== GLOBAL STYLES =====*/
+
+html {
+	box-sizing: border-box;
+}
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+body {
+	font-family: 'Open Sans', sans-serif;
+	color: rgba(255, 255, 255, 0.8);
+	line-height: 1.6;
+	margin: 0;
+	height: 100vh;
+	width: 100vw;
+	
+	display: grid;
+	grid:
+		"sidebar main" 100%
+		/ 20% 80%;
+		
+	background-image: url("https://images.pexels.com/photos/1255062/pexels-photo-1255062.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+/*===== SIDEBAR =====*/
+
+.sidebar {
+	grid-area: sidebar;
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+	max-width: 325px;
+
+	padding: 1em;
+	text-align: center;
+
+	background: rgba(0, 0, 0, 0.7);
+}
+.sidebar * {
+	width: 100%;
+}
+.logo {
+	font-family: 'Baloo Tammudu', cursive;
+	font-size: 60px;
+	height: 75px;
+	margin: 25px 0;
+	overflow: hidden;
+}
+.logo path {
+	fill: transparent;
+}
+.logo text {
+	fill: rgba(255, 255, 255, 0.8);
+	text-shadow: -1px 1px 10px rgba(0, 0, 0, 0.5);
+}
+
+nav {
+	min-height: 60vh;
+	padding: 1em 0;
+	text-align: center;
+	border-top: 1px solid white;
+	border-bottom: 1px solid white;
+}
+.nav-link {
+	display: block;
+	padding: 0.5em 0;
+	color: rgba(255, 255, 255, 0.8);
+}
+.nav-link:hover {
+	background: black;
+	color: white;
+}
+footer {
+	padding: 1em 0;
+	display: flex;
+	flex-flow: column;
+	justify-content: flex-end;
+	height: 100%;
+}
+.media-logos {
+	display: flex;
+	justify-content: center;
+	min-height: 65px;
+}
+.media-logos a {
+	width: auto;
+}
+.media-logos ion-icon {
+	width: 25px;
+	height: 45px;
+	margin: 0 15px;
+	color: rgba(255, 255, 255, 0.8);
+}
+.media-logos a:hover ion-icon {
+	height: 51px;
+}
+
+/*===== MAIN SECTION =====*/
+
+main {
+	grid-area: main;
+	padding: 1em 10vw 1em 5vw;
+/*
+	display: flex;
+	justify-content: center;
+	align-items: center;
+*/
+}
+
+main h1,
+main h2 {
+	font-family: 'Open Sans Condensed', sans-serif;
+}
+main h1 {
+	font-size: 3.5em;
+}
+.what-is-it {
+	width: 50%;
+}
+
+	</style>
+</head>
+
+<body>
+	<div class="sidebar">
+		<header role="banner">
+			<div class="logo">
+				<a href="/">
+					<svg viewBox="0 0 500 500">
+						<path id="curve" d="M73.2,148.6c4-6.1,65.5-96.8,178.6-95.6c111.3,1.2,170.8,90.3,175.1,97" />
+						<text width="500">
+							<textPath alignment-baseline="top" xlink:href="#curve"> - Find a Friend - </textPath>
+						</text>
+					</svg>
+				</a>
+			</div>
+<!--			<h1>Find a Friend</h1>			-->
+			<nav role="navigation">
+				<a class="nav-link" href="/">HOME</a>
+				<a class="nav-link" href="/survey">FIND A FRIEND</a>
+			</nav>
+		</header>
+		<footer role="contentinfo">
+			<a class="nav-link" href="/api/friends">Friends API</a>
+			<div class="media-logos">
+				<a href="https://github.com/cdt12988/FriendFinder" target="_blank"><ion-icon name="logo-github"></ion-icon></a>
+				<a href="http://www.linkedin.com/in/cody-thompson-ab1352165" target="_blank"><ion-icon name="logo-linkedin"></ion-icon></a>
+				
+			</div>
+		</footer>
+	</div>
+	<main role="main">
+		<article role="article">
+			<h1>FIND A FRIEND</h1>
+			<section class="survey">
+				<form role="form" id="survey">
+<!-- 				<label for="name">Name</label> -->
+					<input type="text" id="name" placeholder="Name">
+					<input type="text" id="photo" placeholder="Photo URL">
+<!-- 				<input type="submit" id="submit"> -->
+				</form>
+			</section>
+		</article>
+	</main>
+</body>
+
+<script>
+	var questions = [
+			'I am very sociable and prefer large groups of people',
+			'I enjoy outdoor activities over staying inside',
+			'I am a neat freak',
+			'I tend to keep my opinions to myself',
+			'Social gatherings stress me out',
+			'I prefer dogs over cats',
+			'I always follow the rules',
+			'I feel obligated to tell people when I think they are wrong',
+			'If I found $100 I would try my best to return it to its rightful owner',
+			'My friends are closer to me than my family',
+			'Religion is very important to me',
+			'I prefer pop music over rock and roll',
+			'Video games are an important part of my life',
+			'I never back down from confrontation',
+			'I love to talk about sports'
+		];
+	
+	var options = [
+		'Strongly Disagree',
+		'Somewhat Disagree',
+		'Do Not Agree or Disagree',
+		'Somewhat Agree',
+		'Strongly Agree'
+	];
+		
+	function populateSurveyForm() {
+		
+		questions.forEach(function(question, i) {
+			var label = $('<label>');
+			label.attr({
+				'for': 'q' + (i+1)
+			});
+			label.text(i+1 + ': ' + question);
+			var select = $('<select>');
+			select.attr({
+				'id': 'q' + (i+1)
+			});
+			options.forEach(function(optionText, j) {
+				var option = $('<option>');
+				option.val(parseInt(j)+1);
+				option.text(optionText);
+				select.append(option);
+			});
+			$('#survey').append(label, select);
+		});
+		
+		var submit = $('<input>');
+		submit.attr({
+			'type': 'submit',
+			'id': 'submit',
+			'value': 'Submit Survey'
+		});
+		
+		$('#survey').append(submit);
+		
+	}
+	
+	$(document).on('click', '#submit', function(event) {
+		event.preventDefault();
+		var friend = {
+			name: $('#name').val().trim(),
+			photo: $('#photo').val().trim(),
+			scores: []
+		}
+		questions.forEach(function(question, k) {
+			friend.scores.push(parseInt($('#q' + (k+1)).val()));
+		});
+// 			console.log(friend);
+		
+		var currentURL = window.location.origin;
+		
+		$.post(currentURL + '/api/friends', friend, function(data) {
+			alert('Your match is ' + data.name + '!');
+		});
+// 			return false;
+	});
+	
+	populateSurveyForm();
+	
+</script>
+
+
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE HTML>
+<html>
+<head lang="en-us">
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="assets/normalize.css">
+<!-- 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+<!-- 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css"> -->
+	<link rel="stylesheet" href="assets/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Baloo+Tammudu|Open+Sans+Condensed:300" rel="stylesheet">
+	<script src="https://unpkg.com/ionicons@4.2.4/dist/ionicons.js"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+<!-- 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/modal.js"></script> -->
+<!-- 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+<!-- 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script> -->
+	<script src="assets/script.js"></script>
+</head>
+
+<body>
+	<div class="sidebar">
+		<header role="banner">
+			<div class="logo">
+				<a href="/">
+					<svg viewBox="0 0 500 500">
+						<path id="curve" d="M73.2,148.6c4-6.1,65.5-96.8,178.6-95.6c111.3,1.2,170.8,90.3,175.1,97" />
+						<text width="500">
+							<textPath alignment-baseline="top" xlink:href="#curve"> - Find a Friend - </textPath>
+						</text>
+					</svg>
+				</a>
+			</div>
+<!--			<h1>Find a Friend</h1>			-->
+			<nav role="navigation">
+				<a class="nav-link" href="/">HOME</a>
+				<a class="nav-link" href="/survey">FIND A FRIEND</a>
+			</nav>
+		</header>
+		<footer role="contentinfo">
+			<a class="nav-link" href="/api/friends">Friends API</a>
+			<div class="media-logos">
+				<a href="https://github.com/cdt12988/FriendFinder" target="_blank"><ion-icon name="logo-github"></ion-icon></a>
+				<a href="http://www.linkedin.com/in/cody-thompson-ab1352165" target="_blank"><ion-icon name="logo-linkedin"></ion-icon></a>
+				
+			</div>
+		</footer>
+	</div>
+	
+	<main role="main" id="main">
+		<article role="article">
+			<h1 id="h1">SURVEY</h1>
+			<div id="errors-display"></div>
+			<section class="survey">
+				<form role="form" id="survey">
+					<div id="name-container">
+<!-- 					<label for="name">Name</label> -->
+						<input type="text" id="name" placeholder="Name">
+						<input type="email" id="email" placeholder="Email">
+					</div>
+					<input type="text" id="photo" placeholder="Photo URL">
+<!-- 				<input type="submit" id="submit"> -->
+				</form>
+			</section>
+			<section id="match-display" class="js-hidden">
+				<h2 id="friend_name"></h2>
+				<img id="friend_photo" src="">
+				<a href="/survey">Back</a>
+			</section>
+		</article>
+	</main>
+	<!--
+<div id="modal" class="modal">
+		<div class="modal-content">
+			<h2>Friend Found!</h2>
+			<div class="divider"></div>
+			<h3 id="friend_name"></h3>
+			<img id="friend_photo" class="materialboxed" width="650" src="">
+		</div>
+		<div class="modal-footer">
+			<a href="/survey" class="modal-action modal-close waves-effect waves-green">Find Another Friend!</a>
+		</div>
+	</div>
+-->
+<!--
+		<div id="modal" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h2>Friend Found!</h2>
+					</div>
+					<div class="modal-body">
+						<h3 id="friend_name"></h3>
+						<img id="friend_photo" src="" alt="Photo of matched friend">
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+-->
+</body>
+
+</html>
