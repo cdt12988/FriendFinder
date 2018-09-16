@@ -117,12 +117,12 @@ $(document).ready(function() {
 				friend.scores.push(parseInt($('#q' + (k+1)).val()));
 			});
 	// 			console.log(friend);
-			alert(friend.scores);
+// 			alert(friend.scores);
 			
 			var currentURL = window.location.origin;
 			
 			$.post(currentURL + '/api/friends', friend, function(data) {
-				alert('Your match is ' + data.name + '!\n' + data.percentage + ' %');
+// 				alert('Your match is ' + data.name + '!\n' + data.percentage + ' %');
 				$('#friend_name').text(data.name + ' (' + data.percentage + ' %)');
 				$('#friend_photo').attr('src', data.photo);
 				$('#h1').text('MATCH FOUND');
